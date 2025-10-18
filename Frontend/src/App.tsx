@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./Components/Navbar";
 type Donation = {
   _id: string; name: string; amount: number; message?: string; status: string; createdAt: string;
 };
@@ -68,9 +69,13 @@ export default function App() {
   }
 
   return (
-    <div id="main-box">
-      <h1 id="main-title">Best human in the world 👑</h1>
+<div>
+  <Router>
+        <Navbar></Navbar>
+    </Router>
 
+    <div id="main-box">
+     
       {loading ? (
         <p>Cargando…</p>
       ) : err ? (
@@ -84,6 +89,7 @@ export default function App() {
                 <p id="crown-name"><strong>{crown.name}</strong> <br>
                        </br> Donated {eur(crown.amount)}</p>
                 {crown.message && <p  className="quote">their message to the world is: <br></br><p id="crown-message">"{crown.message}"</p></p>}
+                <p>¿Te atreves a superarlo?</p>
               </>
             ) : (
               <p >Sin corona todavía. ¡Sé el primero!</p>
@@ -148,5 +154,9 @@ export default function App() {
         </>
       )}
     </div>
+
+
+</div>
+   
   );
 }

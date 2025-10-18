@@ -5,6 +5,63 @@
   --ok: #12805a;
   --error: crimson;
 }
+
+nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.4); /* semitransparente para contrastar con el fondo */
+  backdrop-filter: blur(6px);
+ 
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(185, 87, 87, 0.15);
+}
+
+/* --- LINKS --- */
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 100px;
+font-family: "Comic Sans MS", "Comic Sans", cursive;
+  transition: all 0.2s ease-in-out;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+/* --- EFECTOS DE HOVER Y ACTIVO --- */
+nav a:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+nav a:active {
+  transform: translateY(0);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+
+/* Efecto al pasar el ratón */
+nav p::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #f5c518; /* Dorado tipo “premio” */
+  transition: width 0.3s ease;
+}
+
+nav p:hover {
+  color: #f5c518; /* cambia el color del texto */
+}
+
+nav p:hover::after {
+  width: 100%; /* subrayado animado */
+}
 body{
     background: linear-gradient(135deg, #00862d 0%, #ffff66 100%);
 
